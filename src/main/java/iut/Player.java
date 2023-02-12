@@ -1,0 +1,6 @@
+package iut;
+
+class Player {
+
+}
+
