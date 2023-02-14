@@ -11,5 +11,19 @@ public class PlayerTest {
         assertThat(1 + 2).isEqualTo(3);
     }
 
+
+
+    @Test
+        public void ShouldCreatePlayer() {
+            // GIVEN
+            Player hunter = new Player();
+
+            // WHEN
+            int initialHealthPoints = hunter.health();
+
+            // THEN
+            assertThat(initialHealthPoints).isEqualTo(100);
+
+        }
 }
 
