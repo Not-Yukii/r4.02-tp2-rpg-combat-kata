@@ -23,7 +23,7 @@ public class Player {
     }
 
     public void hit(Player opponent) {
-        if (!this.isAlive()) {
+        if (!opponent.isAlive()) {
             return;
         }
 

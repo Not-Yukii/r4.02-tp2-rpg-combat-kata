@@ -31,6 +31,7 @@ public class PlayerTest {
         assertEquals(50, player1.getHealth());
         player2.receiveDamage(120);
         assertEquals(0, player2.getHealth());
+        player1.hit(player2);
         assertFalse(player2.isAlive());
     }
     
@@ -74,6 +75,13 @@ public class PlayerTest {
         assertFalse(player1.isAlive());
     }
     
+    @Test
+    public void testOverheal(){
+        Player player1 = new Player();
+        player1.heal(player1);
+        assertEquals(100, player1.getHealth());
+    }
+
     @Test
     public void testHealDead() {
         Player player1 = new Player();
