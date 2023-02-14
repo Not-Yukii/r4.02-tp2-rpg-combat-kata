@@ -140,5 +140,53 @@ public class PlayerTest {
         assertEquals(90, player1.getHealth());
         assertEquals(100, player2.getHealth());
     }
+
+    @Test
+    void testMeleeFighterAttackInRange() {
+        Player meleeFighter = new Player();
+        meleeFighter.setFighterType(FighterType.MELEE);
+        meleeFighter.setAttackDistance(2);
+        Player opponent = new Player();
+        int initialHealth = opponent.getHealth();
+        meleeFighter.hit(opponent);
+        assertEquals(initialHealth - 10, opponent.getHealth());
+        assertEquals(FighterType.MELEE, meleeFighter.getFighterType());
+    }
+
+    //Il a une épée boomerang
+    @Test
+    void testMeleeFighterAttackOutOfRange() {
+        Player meleeFighter = new Player();
+        meleeFighter.setAttackDistance(2);
+        meleeFighter.setFighterType(FighterType.MELEE);
+        Player opponent = new Player();
+        opponent.setPosition(5, 5);
+        int initialHealth = opponent.getHealth();
+        meleeFighter.hit(opponent);
+        assertEquals(initialHealth - 10, opponent.getHealth());
+    }
+
+    @Test
+    void testRangedFighterAttackInRange() {
+        Player rangedFighter = new Player();
+        rangedFighter.setAttackDistance(20);
+        rangedFighter.setFighterType(FighterType.RANGED);
+        Player opponent = new Player();
+        opponent.setPosition(10, 10);
+        int initialHealth = opponent.getHealth();
+        rangedFighter.hit(opponent);
+        assertEquals(initialHealth - 10, opponent.getHealth());
+    }
+
+    @Test
+    void testRangedFighterAttackOutOfRange() {
+        Player rangedFighter = new Player();
+        rangedFighter.setAttackDistance(20);
+        Player opponent = new Player();
+        opponent.setPosition(30, 30);
+        int initialHealth = opponent.getHealth();
+        rangedFighter.hit(opponent);
+        assertEquals(initialHealth, opponent.getHealth());
+    }
 }
 

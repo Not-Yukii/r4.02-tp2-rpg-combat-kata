@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="iut.PlayerTest" time="0.604" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="iut.PlayerTest" time="0.822" tests="15" errors="0" skipped="0" failures="0">
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="file.encoding.pkg" value="sun.io"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="FR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/yukii/Documents/GitHub/r4.02-tp2-rpg-combat-kata/target/surefire/surefirebooter4545178461013849642.jar /home/yukii/Documents/GitHub/r4.02-tp2-rpg-combat-kata/target/surefire 2023-02-14T17-36-58_904-jvmRun1 surefire3433236115470145562tmp surefire_05704996512947011467tmp"/>
+    <property name="sun.java.command" value="/home/yukii/Documents/GitHub/r4.02-tp2-rpg-combat-kata/target/surefire/surefirebooter8210968029738942742.jar /home/yukii/Documents/GitHub/r4.02-tp2-rpg-combat-kata/target/surefire 2023-02-14T18-26-28_355-jvmRun1 surefire3615978238621927701tmp surefire_02725939496587723595tmp"/>
     <property name="surefire.test.class.path" value="/home/yukii/Documents/GitHub/r4.02-tp2-rpg-combat-kata/target/test-classes:/home/yukii/Documents/GitHub/r4.02-tp2-rpg-combat-kata/target/classes:/home/yukii/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar:/home/yukii/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/home/yukii/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/yukii/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/home/yukii/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/yukii/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar:/home/yukii/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/home/yukii/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/home/yukii/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/home/yukii/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/home/yukii/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/yukii/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/yukii"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/yukii/Documents/GitHub/r4.02-tp2-rpg-combat-kata/target/surefire/surefirebooter4545178461013849642.jar:/home/yukii/.m2/repository/org/jacoco/org.jacoco.agent/0.8.4/org.jacoco.agent-0.8.4-runtime.jar"/>
+    <property name="surefire.real.class.path" value="/home/yukii/Documents/GitHub/r4.02-tp2-rpg-combat-kata/target/surefire/surefirebooter8210968029738942742.jar:/home/yukii/.m2/repository/org/jacoco/org.jacoco.agent/0.8.4/org.jacoco.agent-0.8.4-runtime.jar"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_352-8u352-ga-1~20.04-b08"/>
@@ -58,15 +58,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testHit" classname="iut.PlayerTest" time="0.114"/>
+  <testcase name="testHit" classname="iut.PlayerTest" time="0.117"/>
   <testcase name="testHeal" classname="iut.PlayerTest" time="0.003"/>
-  <testcase name="testHealDead" classname="iut.PlayerTest" time="0.003"/>
-  <testcase name="test" classname="iut.PlayerTest" time="0.398"/>
-  <testcase name="testJoinAndLeaveFaction" classname="iut.PlayerTest" time="0.004"/>
+  <testcase name="testMeleeFighterAttackOutOfRange" classname="iut.PlayerTest" time="0.003"/>
+  <testcase name="testHealDead" classname="iut.PlayerTest" time="0.002"/>
+  <testcase name="test" classname="iut.PlayerTest" time="0.547"/>
+  <testcase name="testRangedFighterAttackInRange" classname="iut.PlayerTest" time="0.007"/>
+  <testcase name="testJoinAndLeaveFaction" classname="iut.PlayerTest" time="0.018"/>
   <testcase name="ShouldCreatePlayer" classname="iut.PlayerTest" time="0.002"/>
-  <testcase name="testOverheal" classname="iut.PlayerTest" time="0.002"/>
+  <testcase name="testOverheal" classname="iut.PlayerTest" time="0.004"/>
+  <testcase name="testMeleeFighterAttackInRange" classname="iut.PlayerTest" time="0.007"/>
+  <testcase name="testRangedFighterAttackOutOfRange" classname="iut.PlayerTest" time="0.012"/>
   <testcase name="testAlliesCanHealEachOther" classname="iut.PlayerTest" time="0.002"/>
-  <testcase name="testIsAlive" classname="iut.PlayerTest" time="0.002"/>
-  <testcase name="testAlliesCannotHitEachOther" classname="iut.PlayerTest" time="0.002"/>
-  <testcase name="testTakeDamage" classname="iut.PlayerTest" time="0.002"/>
+  <testcase name="testIsAlive" classname="iut.PlayerTest" time="0.001"/>
+  <testcase name="testAlliesCannotHitEachOther" classname="iut.PlayerTest" time="0.007"/>
+  <testcase name="testTakeDamage" classname="iut.PlayerTest" time="0.008"/>
 </testsuite>

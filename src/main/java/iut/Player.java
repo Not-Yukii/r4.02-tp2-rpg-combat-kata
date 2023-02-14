@@ -2,11 +2,15 @@ package iut;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Point;
 
 public class Player {
     private int health;
     private boolean alive;
     private List<Faction> factions;
+    private int attackDistance;
+    private FighterType fighterType;
+    private Point position;
 
     public Player() {
         this.health = 100;
@@ -22,6 +26,22 @@ public class Player {
         return alive;
     }
 
+    public int getAttackDistance() {
+        return attackDistance;
+    }
+
+    public void setAttackDistance(int attackDistance) {
+        this.attackDistance = attackDistance;
+    }
+
+    public FighterType getFighterType() {
+        return fighterType;
+    }
+
+    public void setFighterType(FighterType fighterType) {
+        this.fighterType = fighterType;
+    }
+
     public void hit(Player opponent) {
         if (!opponent.isAlive()) {
             return;
@@ -31,7 +51,9 @@ public class Player {
             return;
         }
 
-        opponent.receiveDamage(10);
+        if (this.isInRange(opponent)) {
+            opponent.receiveDamage(10);
+        }
     }
 
     public void receiveDamage(int damage) {
@@ -80,4 +102,22 @@ public class Player {
 
         return false;
     }
+
+    public boolean isInRange(Player opponent) {
+        int distance = Math.abs(this.getAttackDistance() - opponent.getAttackDistance());
+        if (this.fighterType == FighterType.RANGED) {
+            return distance <= 20;
+        } else {
+            return distance <= 2;
+        }
+    }
+
+    public void setPosition(int x, int y) {
+        this.position = new Point(x, y);
+    }
+}
+
+enum FighterType {
+    MELEE,
+    RANGED
 }
