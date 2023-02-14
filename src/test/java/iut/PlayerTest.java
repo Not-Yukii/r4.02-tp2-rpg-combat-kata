@@ -61,5 +61,29 @@ public class PlayerTest {
         assertThat(initialHealthPoints).isEqualTo(100);
 
     }
+
+    @Test
+    public void testHeal() {
+        Player player1 = new Player();
+        player1.setHealthPoints(50);
+        player1.heal();
+        assertEquals(60, player1.getHealthPoints());
+        player1.setHealthPoints(90);
+        player1.heal();
+        assertEquals(100, player1.getHealthPoints());
+        player1.setHealthPoints(0);
+        player1.heal();
+        assertEquals(0, player1.getHealthPoints());
+        assertFalse(player1.isAlive());
+    }
+    
+    @Test
+    public void testHealDead() {
+        Player player1 = new Player();
+        player1.setHealthPoints(0);
+        player1.heal();
+        assertEquals(0, player1.getHealthPoints());
+        assertFalse(player1.isAlive());
+    }
 }
 

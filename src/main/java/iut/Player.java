@@ -36,5 +36,20 @@ public class Player {
             this.alive = false;
         }
     }
+
+    public void heal() {
+        if (!this.alive) {
+            System.out.println("Le personnage est mort et ne peut pas être soigné.");
+        } else {
+            int newHealthPoints = this.healthPoints + 10;
+            if (newHealthPoints > 100) {
+                this.healthPoints = 100;
+            } else {
+                this.healthPoints = newHealthPoints;
+            }
+        }
+    }
+
+
 }
 
