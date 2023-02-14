@@ -1,55 +1,83 @@
 package iut;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
-    private int healthPoints;
+    private int health;
     private boolean alive;
+    private List<Faction> factions;
 
     public Player() {
-        this.healthPoints = 100;
+        this.health = 100;
         this.alive = true;
+        this.factions = new ArrayList<>();
     }
 
-    public int getHealthPoints() {
-        return this.healthPoints;
-    }
-
-    public void setHealthPoints(int healthPoints) {
-        this.healthPoints = healthPoints;
-        if (this.healthPoints <= 0) {
-            this.healthPoints = 0;
-            this.alive = false;
-        }
+    public int getHealth() {
+        return health;
     }
 
     public boolean isAlive() {
-        return this.alive;
+        return alive;
     }
 
     public void hit(Player opponent) {
-        opponent.takeDamage(10);
+        if (!this.isAlive()) {
+            return;
+        }
+
+        if (this.isAlly(opponent)) {
+            return;
+        }
+
+        opponent.receiveDamage(10);
     }
 
-    public void takeDamage(int damage) {
-        this.healthPoints -= damage;
-        if (this.healthPoints <= 0) {
-            this.healthPoints = 0;
+    public void receiveDamage(int damage) {
+        this.health -= damage;
+        if (this.health <= 0) {
+            this.health = 0;
             this.alive = false;
         }
     }
 
-    public void heal() {
-        if (!this.alive) {
-            System.out.println("Le personnage est mort et ne peut pas être soigné.");
-        } else {
-            int newHealthPoints = this.healthPoints + 10;
-            if (newHealthPoints > 100) {
-                this.healthPoints = 100;
-            } else {
-                this.healthPoints = newHealthPoints;
-            }
+    public void heal(Player player) {
+        if (!player.isAlive()) {
+            return;
+        }
+
+        player.health += 10;
+        if (player.health > 100) {
+            player.health = 100;
         }
     }
 
+    public void joinFaction(Faction faction) {
+        if (this.factions.contains(faction)) {
+            return;
+        }
 
+        this.factions.add(faction);
+        faction.addPlayer(this);
+    }
+
+    public void leaveFaction(Faction faction) {
+        if (!this.factions.contains(faction)) {
+            return;
+        }
+
+        this.factions.remove(faction);
+        faction.removePlayer(this);
+    }
+
+    public boolean isAlly(Player player) {
+        for (Faction faction : this.factions) {
+            if (faction.hasPlayer(player)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
-
